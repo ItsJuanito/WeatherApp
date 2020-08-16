@@ -3,7 +3,7 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/"
 } // api key and base
 
-let mainTemp, min, max, newMain, newMax, newMin;
+let mainTemp, min, max, feels, humidity, newMain, newMax, newMin, newF;
 // set global variables to use for onclick event
 
 const searchBox = document.querySelector('.search-box');
@@ -16,16 +16,28 @@ buttonF.onclick = () => {
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(newMain)} <span>°F</span>`;
 
+    let feel = document.querySelector('.feels');
+    feel.innerText = `Feels like: ${Math.round(newF)}°F`;
+
+    let humid = document.querySelector('.humidity');
+    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
+
     let hilow = document.querySelector('.hi-low');
-    hilow.innerText = `${Math.round(newMin)}°F / ${Math.round(newMax)}°F`;
+    hilow.innerText = `Hi-Low: ${Math.round(newMin)}°F / ${Math.round(newMax)}°F`;
 } // converts the degrees to Fahrenheit
 
 buttonC.onclick = () => {
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(mainTemp)} <span>°C</span>`;
 
+    let feel = document.querySelector('.feels');
+    feel.innerText = `Feels like: ${Math.round(feels)}°C`;
+
+    let humid = document.querySelector('.humidity');
+    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
+
     let hilow = document.querySelector('.hi-low');
-    hilow.innerText = `${Math.round(min)}°C / ${Math.round(max)}°C`;
+    hilow.innerText = `Hi-Low: ${Math.round(min)}°C / ${Math.round(max)}°C`;
 } // converts the degree to Celsuis
 
 function setQuery(evt) {
@@ -58,12 +70,21 @@ function displayResults(weather) {
     let cast = weather.weather[0].main;
     weather_cast.innerText = cast;
 
+    let feel = document.querySelector('.feels');
+    feels = weather.main.feels_like;
+    newF = weather.main.feels_like *1.8 + 32;
+    feel.innerText = `Feels like: ${Math.round(newF)}°F`;
+
     let hilow = document.querySelector('.hi-low');
     min = weather.main.temp_min;
     max = weather.main.temp_max;
     newMin = (min) * 1.8 + 32;
     newMax = (max) * 1.8 + 32;
-    hilow.innerText = `${Math.round(newMin)}°F / ${Math.round(newMax)}°F`;
+    hilow.innerText = `Hi-Low: ${Math.round(newMin)}°F / ${Math.round(newMax)}°F`;
+
+    let humid = document.querySelector('.humidity');
+    humidity = weather.main.humidity;
+    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
     checkCast(cast);
 } // displays all query from api to index.html
 
@@ -93,3 +114,4 @@ function checkCast(c) {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
     }
 } // changes background image bases on the forecast
+
