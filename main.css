@@ -25,7 +25,7 @@ header {
 }
 header input {
     width: 100%;
-    max-width: 40%;
+    max-width: 50%;
     padding: 10px 15px;
     border: none;
     outline: none;
@@ -80,11 +80,20 @@ main {
     margin-bottom: 15px;
     text-shadow: 0px 3px rgba(0, 0, 0, 0.4);
 }
-.current .hi-low {
+.current .extra {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    justify-content: center;
+    width: 100%;
     color: #FFFFFF;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*.current .hi-low {
+    
 }
 .current .feels {
     color: #FFFFFF;
@@ -97,7 +106,7 @@ main {
     font-size: 25px;
     font-weight: 500;
     text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
-}
+}*/
 button {
     border: none;
     font-size: 20px;
