@@ -81,7 +81,7 @@ function dateBuilder() {
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${month} ${date}, ${year}`;
+    return `${day}, ${month} ${date}, ${year}`;
 } // gets day, month, date, and year (of search)
 
 function checkCast(c) {
