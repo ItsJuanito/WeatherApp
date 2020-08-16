@@ -27,6 +27,21 @@ function displayResults(weather) {
     date.innerText = dateBuilder();
 
     let temp = document.querySelector('.current .temp');
+    let newMain = (weather.main.temp) * 1.8 + 32;
+    temp.innerHTML = `${Math.round(newMain)} <span>°F</span>`
+
+    let weather_cast = document.querySelector('.current .weather');
+    let cast = weather.weather[0].main;
+    weather_cast.innerText = cast;
+
+    let hilow = document.querySelector('.hi-low');
+    let min = (weather.main.temp_min) * 1.8 + 32;
+    let max = (weather.main.temp_max) * 1.8 + 32;
+    hilow.innerText = `${Math.round(min)}°F / ${Math.round(max)}°F`;
+    checkCast(cast);
+
+    //the commented code displays the temperature in Celsuis
+    /*let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)} <span>°C</span>`
 
     let weather_cast = document.querySelector('.current .weather');
@@ -37,7 +52,8 @@ function displayResults(weather) {
     let min = Math.round(weather.main.temp_min);
     let max = Math.round(weather.main.temp_max);
     hilow.innerText = `${min}°C / ${max}°C`;
-    checkCast(cast);
+    checkCast(cast);*/
+    
 }
 
 function dateBuilder() {
