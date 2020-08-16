@@ -21,6 +21,7 @@ function getResults(query) {
 } // fetches api and gets results and query
 
 function displayResults(weather) {
+    console.log(weather);
     let city = document.querySelector('.city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
     let date = document.querySelector('.date');
