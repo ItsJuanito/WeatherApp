@@ -89,7 +89,7 @@ function checkCast(c) {
         document.body.style.backgroundImage = "url('./img/sunny.jpg')";
     } else if (c == "Clouds" || c == "Haze") {
         document.body.style.backgroundImage = "url('./img/cloudy.jpg')";
-    } else if (c == "Rain") {
+    } else if (c == "Rain" || "Thunderstorm") {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
     }
 } // changes background image bases on the forecast
