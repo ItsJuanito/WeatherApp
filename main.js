@@ -57,7 +57,14 @@ function getResults(query) {
 function displayResults(weather) {
     console.log(weather);
     let city = document.querySelector('.city');
-    city.innerText = `${weather.name}, ${weather.sys.country}`;
+    try {
+        city.innerText = `${weather.name}, ${weather.sys.country}`;
+    } catch(err) {
+        /*let alrt = document.querySelector('p');
+        alrt.innerText = `Enter another city`;*/
+        alert('This city is not in our database. Enter another city please!');
+    } // tells user to chose a valid/existing city
+    
     let date = document.querySelector('.date');
     date.innerText = dateBuilder();
 
@@ -114,4 +121,3 @@ function checkCast(c) {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
     }
 } // changes background image bases on the forecast
-
