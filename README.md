@@ -1,7 +1,5 @@
 # WeatherApp
 
-# Personal Project
-
 # Img Folder
   - contains different background images that change depending on weather forecast.
     
