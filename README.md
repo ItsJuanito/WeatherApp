@@ -8,4 +8,5 @@
   - index.html                : This is the home page of the website where everything is displayd in the UI.
   - main.js                   : Granning javascript code to handle API search results. And includes other functions that display and manipulate API data.
   
-  -api source                 :https://openweathermap.org/api
+# Api Info
+  - api source                :https://openweathermap.org/api
