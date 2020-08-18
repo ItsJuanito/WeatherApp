@@ -126,9 +126,9 @@ function dateBuilder() {
 function checkCast(c) {
     if (c == "Sunny" || c == "Clear") {
         document.body.style.backgroundImage = "url('./img/sunny.jpg')";
-    } else if (c == "Clouds" || c == "Haze" || "Mist") {
+    } else if (c == "Clouds" || c == "Haze" || c == "Mist") {
         document.body.style.backgroundImage = "url('./img/cloudy.jpg')";
-    } else if (c == "Rain" || "Thunderstorm") {
+    } else if (c == "Rain" || c == "Thunderstorm") {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
     }
 } // changes background image bases on the forecast
