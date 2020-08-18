@@ -13,6 +13,11 @@ let buttonF = document.querySelector(".F");
 let buttonC = document.querySelector(".C");
 
 buttonF.onclick = () => {
+
+    if (humidity === undefined) {
+        alert('You must search a city to switch the degrees');
+    }
+
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(newMain)} <span>°F</span>`;
 
@@ -20,13 +25,19 @@ buttonF.onclick = () => {
     feel.innerText = `Feels like: ${Math.round(newF)}°F`;
 
     let humid = document.querySelector('.humidity');
-    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
+    humid.innerText = `Humidity: ${humidity}%`;
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `Hi-Low: ${Math.round(newMin)}°F / ${Math.round(newMax)}°F`;
+
 } // converts the degrees to Fahrenheit
 
 buttonC.onclick = () => {
+
+    if (humidity === undefined) {
+        alert('You must search a city to switch the degrees');
+    }
+
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(mainTemp)} <span>°C</span>`;
 
@@ -34,10 +45,11 @@ buttonC.onclick = () => {
     feel.innerText = `Feels like: ${Math.round(feels)}°C`;
 
     let humid = document.querySelector('.humidity');
-    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
+    humid.innerText = `Humidity: ${humidity}%`;
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `Hi-Low: ${Math.round(min)}°C / ${Math.round(max)}°C`;
+
 } // converts the degree to Celsuis
 
 function setQuery(evt) {
@@ -63,8 +75,7 @@ function displayResults(weather) {
         /*let alrt = document.querySelector('p');
         alrt.innerText = `Enter another city`;*/
         alert('This city is not in our database. Enter another city please!');
-    } // tells user to chose a valid/existing city
-    
+    }
     let date = document.querySelector('.date');
     date.innerText = dateBuilder();
 
@@ -91,7 +102,7 @@ function displayResults(weather) {
 
     let humid = document.querySelector('.humidity');
     humidity = weather.main.humidity;
-    humid.innerText = `Humidity: ${Math.round(humidity)}%`;
+    humid.innerText = `Humidity: ${humidity}%`;
     checkCast(cast);
 } // displays all query from api to index.html
 
@@ -115,7 +126,7 @@ function dateBuilder() {
 function checkCast(c) {
     if (c == "Sunny" || c == "Clear") {
         document.body.style.backgroundImage = "url('./img/sunny.jpg')";
-    } else if (c == "Clouds" || c == "Haze") {
+    } else if (c == "Clouds" || c == "Haze" || "Mist") {
         document.body.style.backgroundImage = "url('./img/cloudy.jpg')";
     } else if (c == "Rain" || "Thunderstorm") {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
