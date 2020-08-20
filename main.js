@@ -75,6 +75,7 @@ function displayResults(weather) {
         /*let alrt = document.querySelector('p');
         alrt.innerText = `Enter another city`;*/
         alert('This city is not in our database. Enter another city please!');
+        searchBox.value = '';
     }
     let date = document.querySelector('.date');
     date.innerText = dateBuilder();
