@@ -1,7 +1,7 @@
 # WeatherApp
 
 # Img Folder
-  - contains different background images that change depending on weather forecast.
+  - contains different images that change the ui background depending on weather forecast.
     
 # Master Folder
   - main.css                  : Contains styling for the results taken in from user's search.
