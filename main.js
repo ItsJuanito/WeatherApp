@@ -133,5 +133,7 @@ function checkCast(c) {
         document.body.style.backgroundImage = "url('./img/rainy.jpg')";
     } else if (c == "Smoke") {
         document.body.style.backgroundImage = "url('./img/smoke.jpg')";           
+    } else if (c == "Snow") {
+        document.body.style.backgroundImage = "url('./img/snow.jpg')";
     }
 } // changes background image bases on the forecast
